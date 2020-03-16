@@ -1,24 +1,17 @@
-# contentful-to-cv
+# Contentful to Cv
 
-## Project setup
-```
-npm install
-```
+Generate a CV from Contentful.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+# Contribute
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- Webapp developed with Vue.js
+- It uses Contentful as database
+- Design work by [Kristof](https://github.com/kristofkerninon) for initial version
+- Need two environment variables (`.env.local`)
 
-### Lints and fixes files
 ```
-npm run lint
+VUE_APP_SPACE=XX
+VUE_APP_TOKEN=XX
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+> Ask [Benjamin](https://github.com/blacroix) for Contentful access.
