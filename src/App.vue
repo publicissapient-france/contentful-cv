@@ -5,6 +5,7 @@
       <LangAndXp v-bind="cv"/>
       <TechIcons :tech-icons="techIcons"/>
       <Bio :picture="picture" :biography="cv.biography"/>
+      <ExpertiseAndSkills v-bind="cv"/>
     </Page>
     <table>
       <thead>
@@ -49,10 +50,22 @@
   import * as Contentful from 'contentful';
   import Mission from '@/components/Mission';
   import MissionsHeader from '@/components/MissionsHeader';
+  import ExpertiseAndSkills from '@/components/ExpertiseAndSkills';
 
   export default {
     name: 'App',
-    components: {MissionsHeader, Mission, Page, Header, Footer, Bio, TechIcons, LangAndXp, HeaderBig},
+    components: {
+      ExpertiseAndSkills,
+      MissionsHeader,
+      Mission,
+      Page,
+      Header,
+      Footer,
+      Bio,
+      TechIcons,
+      LangAndXp,
+      HeaderBig
+    },
     data() {
       return {
         cv: {}
@@ -132,6 +145,7 @@
 
   li {
     &::before {
+      vertical-align: top;
       content: "\2022";
       color: #fe414d;
       display: inline-block;
