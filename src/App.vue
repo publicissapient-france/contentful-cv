@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <HeaderBig v-bind="cv"/>
-    <LangAndXp v-bind="cv"/>
-    <TechIcons :tech-icons="techIcons"/>
-    <Bio :picture="picture" :biography="cv.biography"/>
-    <PageBreak/>
-    <Header v-bind="cv"/>
-    <Footer/>
+    <Page>
+      <HeaderBig v-bind="cv"/>
+      <LangAndXp v-bind="cv"/>
+      <TechIcons :tech-icons="techIcons"/>
+      <Bio :picture="picture" :biography="cv.biography"/>
+    </Page>
+    <Page>
+      <Header v-bind="cv"/>
+      <Footer/>
+    </Page>
   </div>
 </template>
 
@@ -17,12 +20,12 @@
   import Bio from '@/components/Bio';
   import Footer from '@/components/Footer';
   import Header from '@/components/Header';
-  import PageBreak from '@/components/PageBreak';
+  import Page from '@/components/Page';
   import * as Contentful from 'contentful';
 
   export default {
     name: 'App',
-    components: {PageBreak, Header, Footer, Bio, TechIcons, LangAndXp, HeaderBig},
+    components: {Page, Header, Footer, Bio, TechIcons, LangAndXp, HeaderBig},
     data() {
       return {
         cv: {}
@@ -76,7 +79,7 @@
   }
 
   #app {
-    max-width: 794px; /* 150 ppi */
+    max-width: 794px; /* 96 ppi */
     margin: auto;
     font-family: 'Nunito Sans', sans-serif;
     -webkit-font-smoothing: antialiased;

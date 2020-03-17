@@ -1,16 +1,23 @@
 <template>
-  <div class="page-break"></div>
+  <div class="page">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
   export default {
-    name: 'PageBreak'
+    name: 'Page'
   }
 </script>
 
 <style scoped lang="scss">
+  .page {
+    height: 1123px;
+    overflow: hidden;
+  }
+
   @media print {
-    .page-break {
+    .page {
       page-break-after: always;
     }
   }
