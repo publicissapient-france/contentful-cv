@@ -27,6 +27,7 @@
     display: flex;
     padding: 3px 50px;
     font-size: .9em;
+    margin-top: 160px;
 
     &__lang {
       flex-grow: 1;

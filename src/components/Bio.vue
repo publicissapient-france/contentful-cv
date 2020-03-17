@@ -1,7 +1,7 @@
 <template>
   <div class="bio">
     <img v-if="picture" class="bio__image" :src="picture.src" :alt="picture.alt">
-    <div class="bio__description">
+    <div class="bio__description" v-if="biography">
       <RichTextRenderer :document="biography"/>
     </div>
   </div>

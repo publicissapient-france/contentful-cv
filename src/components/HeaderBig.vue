@@ -20,6 +20,9 @@
 <style scoped lang="scss">
   $height: 160px;
   .header {
+    z-index: 1;
+    position: absolute;
+    width: 794px;
     height: $height;
     display: flex;
     background-color: #fe414d;

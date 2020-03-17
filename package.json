@@ -11,6 +11,7 @@
     "contentful": "^7.14.0",
     "contentful-rich-text-vue-renderer": "^1.1.5",
     "core-js": "^3.6.4",
+    "dayjs": "^1.8.23",
     "vue": "^2.6.11"
   },
   "devDependencies": {
