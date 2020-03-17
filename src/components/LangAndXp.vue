@@ -15,7 +15,7 @@
     props: ['languages', 'graduateDate'],
     computed: {
       experience() {
-        return new Date().getFullYear() - parseInt(this.graduateDate.split('-')[0], 10);
+        return new Date().getFullYear() - this.graduateDate;
       },
     }
   }
