@@ -15,9 +15,13 @@
 
 <style scoped lang="scss">
   .footer {
+    background-color: #FFFFFF;
+    height: 50px;
     font-size: .6rem;
     padding: 10px 50px;
-    width: 100%;
+    width: 794px;
+    position: fixed;
+    bottom: 0;
 
     &__address {
       width: 50%;
@@ -26,13 +30,6 @@
     &__contact {
       width: 50%;
       text-align: right;
-    }
-  }
-
-  @media print {
-    .footer {
-      position: fixed;
-      bottom: 0;
     }
   }
 </style>
