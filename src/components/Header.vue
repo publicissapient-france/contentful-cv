@@ -22,7 +22,7 @@
   .header {
     height: $height;
     display: flex;
-    background-color: #04a0ff;
+    background-color: #fe414d;
     align-items: center;
     margin: 0;
     padding: 0;
