@@ -19,6 +19,7 @@
       <tr>
         <td>
           <div>
+            <InfoContent :background="background" :talks="talks" :posts="posts"/>
             <MissionsHeader/>
             <Mission v-for="(mission, index) in missions" :mission="mission" :key="index"/>
           </div>
@@ -51,10 +52,12 @@
   import Mission from '@/components/Mission';
   import MissionsHeader from '@/components/MissionsHeader';
   import ExpertiseAndSkills from '@/components/ExpertiseAndSkills';
+  import InfoContent from '@/components/background/InfoContent';
 
   export default {
     name: 'App',
     components: {
+      InfoContent,
       ExpertiseAndSkills,
       MissionsHeader,
       Mission,
@@ -108,6 +111,21 @@
               alt: m.fields.client.fields.image.fields.title,
             }
           },
+        })) : null;
+      },
+      background() {
+        return this.cv.background ? this.cv.background.map(b => ({
+          ...b.fields
+        })) : null;
+      },
+      talks() {
+        return this.cv.talks ? this.cv.talks.map(t => ({
+          ...t.fields
+        })) : null;
+      },
+      posts() {
+        return this.cv.posts ? this.cv.posts.map(t => ({
+          ...t.fields
         })) : null;
       }
     },
