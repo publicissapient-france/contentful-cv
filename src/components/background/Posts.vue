@@ -23,7 +23,7 @@
 
 <style scoped lang="scss">
   .posts {
-    margin-bottom: 30px;
+    margin: 0 20px 30px;
 
     &__post {
       margin: 10px 0;

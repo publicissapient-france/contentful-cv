@@ -10,6 +10,7 @@
 
 <style scoped lang="scss">
   .missions-header {
+    padding-top: 150px;
     margin: 50px;
     font-weight: 700;
     font-size: 2em;

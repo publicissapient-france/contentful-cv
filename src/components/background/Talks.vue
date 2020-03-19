@@ -23,7 +23,7 @@
 
 <style scoped lang="scss">
   .talks {
-    margin-bottom: 30px;
+    margin: 0 20px 30px;
 
     &__title {
       font-weight: 700;

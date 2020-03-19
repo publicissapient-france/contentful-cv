@@ -44,7 +44,7 @@
 
 <style scoped lang="scss">
   .mission {
-    padding: 0 50px 20px;
+    padding: 0 50px 50px 50px;
 
     &__unbreakable {
       page-break-inside: avoid;
@@ -80,10 +80,15 @@
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
-      height: 250px;
+      max-height: 250px;
       padding: 5px;
       overflow: hidden;
       page-break-inside: avoid;
+
+      > * {
+        margin: 0 20px;
+        width: 42%;
+      }
     }
   }
 </style>

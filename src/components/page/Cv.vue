@@ -1,50 +1,55 @@
 <template>
-  <div>
-    <Page>
-      <HeaderBig v-bind="cv"/>
-      <LangAndXp v-bind="cv"/>
-      <TechIcons :tech-icons="techIcons"/>
-      <Bio :picture="picture" :biography="cv.biography"/>
-      <ExpertiseAndSkills v-bind="cv"/>
-    </Page>
-    <table>
-      <thead>
-      <tr>
-        <td>
-          <div style="height: 120px">&nbsp;</div>
-        </td>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>
-          <div>
-            <InfoContent :background="background" :talks="talks" :posts="posts"/>
-            <MissionsHeader/>
-            <Mission v-for="(mission, index) in missions" :mission="mission" :key="index"/>
-          </div>
-        </td>
-      </tr>
-      </tbody>
-      <tfoot>
-      <tr>
-        <td>
-          <div style="height: 50px">&nbsp;</div>
-        </td>
-      </tr>
-      </tfoot>
-    </table>
+  <div class="cv">
+    <div class="cv__loaded" v-if="cv.id">
+      <div>
+        <Page>
+          <HeaderBig v-bind="cv"/>
+          <LangAndXp v-bind="cv"/>
+          <TechIcons :tech-icons="techIcons"/>
+          <Bio :picture="picture" :biography="cv.biography"/>
+          <ExpertiseAndSkills v-bind="cv"/>
+        </Page>
+        <table>
+          <thead>
+          <tr>
+            <td>
+              <div style="height: 120px">&nbsp;</div>
+            </td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <div>
+                <InfoContent :background="background" :talks="talks" :posts="posts"/>
+                <MissionsHeader/>
+                <Mission v-for="(mission, index) in missions" :mission="mission" :key="index"/>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+            <td>
+              <div style="height: 50px">&nbsp;</div>
+            </td>
+          </tr>
+          </tfoot>
+        </table>
 
-    <Header v-bind="cv"/>
-    <Footer/>
+        <Header v-bind="cv"/>
+        <Footer/>
+      </div>
+    </div>
+    <h1 class="cv__loading" v-else>⏳ Récupération des données de Contentful...</h1>
   </div>
 </template>
 
 <script>
   import InfoContent from '@/components/background/InfoContent';
   import ExpertiseAndSkills from '@/components/ExpertiseAndSkills';
-  import MissionsHeader from '@/components/MissionsHeader';
-  import Mission from '@/components/Mission';
+  import MissionsHeader from '@/components/missions/MissionsHeader';
+  import Mission from '@/components/missions/Mission';
   import Page from '@/components/Page';
   import Header from '@/components/Header';
   import Footer from '@/components/Footer';
@@ -130,6 +135,11 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  .cv {
+    &__loading {
+      text-align: center;
+      margin: 50px;
+    }
+  }
 </style>

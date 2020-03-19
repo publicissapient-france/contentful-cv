@@ -40,6 +40,7 @@
 
     &__expertise {
       width: 50%;
+      padding: 0 30px 0 0;
 
       li {
         margin-bottom: 10px;
@@ -50,7 +51,7 @@
       width: 50%;
 
       li {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
 
         &::before {
           content: "";

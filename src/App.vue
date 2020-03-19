@@ -52,7 +52,7 @@
     li {
       &::before {
         content: "\25E6";
-        margin-left: -.5em;
+        margin-left: -1em;
       }
     }
   }
