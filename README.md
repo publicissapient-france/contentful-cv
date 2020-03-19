@@ -12,8 +12,10 @@ Generate a CV from Contentful.
 - Need two environment variables (`.env.local`)
 
 ```
-VUE_APP_SPACE=XX
-VUE_APP_TOKEN=XX
+VUE_APP_API_HOST=XX
+VUE_APP_AUTH0_AUDIENCE=XX
+VUE_APP_AUTH0_CLIENT_ID=XX
+VUE_APP_AUTH0_DOMAIN=XX
 ```
 
-> Ask [Benjamin](https://github.com/blacroix) for Contentful access.
+> Ask [Benjamin](https://github.com/blacroix) or #contentful-cv on Slack for further information.
