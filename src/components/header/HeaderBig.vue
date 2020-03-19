@@ -5,15 +5,23 @@
       <div class="header__role">{{role}}</div>
     </div>
     <div class="header__brand">
-      <img alt="" class="header__image" src="logo.svg">
+      <ImageCurve class="header__curve"/>
+      <ImageLogo class="header__logo"/>
     </div>
   </div>
 </template>
 
 <script>
+  import ImageCurve from '@/components/header/ImageCurve';
+  import ImageLogo from '@/components/header/ImageLogo';
+
   export default {
     name: 'HeaderBig',
-    props: ['firstName', 'name', 'role']
+    props: ['firstName', 'name', 'role'],
+    components: {
+      ImageLogo,
+      ImageCurve
+    }
   }
 </script>
 
@@ -41,7 +49,6 @@
       padding-right: 25px;
       padding-left: 50px;
       background-color: #000000;
-      border-radius: 0 0 0 75px;
     }
 
     &__name {
@@ -53,8 +60,15 @@
 
     }
 
-    &__image {
+    &__curve {
       height: 100%;
+      width: 70px;
+      position: absolute;
+      right: 210px;
+    }
+
+    &__logo {
+      height: 150px;
     }
   }
 </style>

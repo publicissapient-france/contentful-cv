@@ -15,10 +15,4 @@
     height: 1123px;
     overflow: hidden;
   }
-
-  @media print {
-    .page {
-      page-break-after: always;
-    }
-  }
 </style>

@@ -20,11 +20,9 @@
           <tbody>
           <tr>
             <td>
-              <div>
-                <InfoContent :background="background" :talks="talks" :posts="posts"/>
-                <MissionsHeader/>
-                <Mission v-for="(mission, index) in missions" :mission="mission" :key="index"/>
-              </div>
+              <InfoContent :background="background" :talks="talks" :posts="posts"/>
+              <MissionsHeader/>
+              <Mission v-for="(mission, index) in missions" :mission="mission" :key="index"/>
             </td>
           </tr>
           </tbody>
@@ -51,12 +49,12 @@
   import MissionsHeader from '@/components/missions/MissionsHeader';
   import Mission from '@/components/missions/Mission';
   import Page from '@/components/Page';
-  import Header from '@/components/Header';
+  import Header from '@/components/header/Header';
   import Footer from '@/components/Footer';
   import Bio from '@/components/Bio';
   import TechIcons from '@/components/TechIcons';
   import LangAndXp from '@/components/LangAndXp';
-  import HeaderBig from '@/components/HeaderBig';
+  import HeaderBig from '@/components/header/HeaderBig';
   import * as Contentful from 'contentful';
 
   export default {

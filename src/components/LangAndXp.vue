@@ -26,7 +26,7 @@
     border-top: solid 1px #E0E0E0;
     display: flex;
     padding: 3px 50px;
-    font-size: .9em;
+    font-size: 1.1em;
     margin-top: 160px;
 
     &__lang {
@@ -35,6 +35,7 @@
 
     &__count {
       color: #FE414D;
+      font-weight: 800;
     }
   }
 </style>

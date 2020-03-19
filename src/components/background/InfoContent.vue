@@ -61,7 +61,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     height: 800px;
-    page-break-after: always;
 
     &--2column-small {
       height: 300px;

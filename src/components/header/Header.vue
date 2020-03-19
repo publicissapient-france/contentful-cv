@@ -4,15 +4,16 @@
       <div class="header__name">{{firstName}} {{name}}</div>
       <div class="header__role">{{role}}</div>
     </div>
-    <div class="header__brand">
-      <img alt="" class="header__image" src="logo-w.svg">
-    </div>
+    <ImageLogoW class="header__logo"/>
   </div>
 </template>
 
 <script>
+  import ImageLogoW from '@/components/header/ImageLogoW';
+
   export default {
     name: 'Header',
+    components: {ImageLogoW},
     props: ['firstName', 'name', 'role']
   }
 </script>
@@ -51,7 +52,7 @@
 
     }
 
-    &__image {
+    &__logo {
       height: 100%;
     }
   }
