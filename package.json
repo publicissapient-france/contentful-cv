@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.6.4",
-    "axios": "^0.19.2",
+    "contentful": "^7.14.0",
     "contentful-rich-text-vue-renderer": "^1.1.5",
     "core-js": "^3.6.4",
     "dayjs": "^1.8.23",

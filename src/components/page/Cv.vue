@@ -52,7 +52,7 @@
   import TechIcons from '@/components/TechIcons';
   import LangAndXp from '@/components/LangAndXp';
   import HeaderBig from '@/components/HeaderBig';
-  import axios from 'axios';
+  import * as Contentful from 'contentful';
 
   export default {
     name: 'Cv',
@@ -76,12 +76,14 @@
     },
     async mounted() {
       const token = await this.$auth.getTokenSilently();
-      const response = await axios.get(`${process.env.VUE_APP_API}/${this.$route.params.id}/cv`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        }
+      const client = Contentful.createClient({
+        host: process.env.VUE_APP_API_HOST,
+        basePath: `/people/${this.$route.params.id}/cv`,
+        space: 's',
+        accessToken: token,
       });
-      this.cv = response.data;
+      const entries = await client.getEntries();
+      this.cv = entries.items[0].fields;
     },
     computed: {
       techIcons() {
