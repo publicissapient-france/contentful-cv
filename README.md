@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/aac22954-c1be-47f2-9cba-10bce3d64c74/deploy-status)](https://app.netlify.com/sites/pse-contentful-cv/deploys)
+
 # Contentful to Cv
 
 Generate a CV from Contentful.
