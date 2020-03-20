@@ -17,7 +17,7 @@
 <style scoped lang="scss">
   .tech-icons {
     border-top: solid 1px #E0E0E0;
-    padding: 15px 50px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-around;
 
@@ -25,7 +25,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-size: .5rem;
+      font-size: .7rem;
     }
 
     &__image {
