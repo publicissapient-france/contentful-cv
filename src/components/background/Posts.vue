@@ -1,6 +1,6 @@
 <template>
   <div class="posts">
-    <div class="posts__title">Publications 🖋</div>
+    <div class="posts__title">Publications</div>
     <ul>
       <li v-for="post in posts" :key="post.title" class="posts__post">
         <div class="posts__post-inside">

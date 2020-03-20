@@ -51,7 +51,8 @@
     }
 
     &__client-image {
-      height: 50px;
+      max-height: 110px;
+      max-width: 110px;
       margin-bottom: 10px;
     }
 

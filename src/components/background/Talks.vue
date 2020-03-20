@@ -1,6 +1,6 @@
 <template>
   <div class="talks">
-    <div class="talks__title">Speaker 🎙</div>
+    <div class="talks__title">Speaker</div>
     <ul>
       <li v-for="talk in talks" :key="talk.subject" class="talks__talk">
         <div class="talks__talk-inside">

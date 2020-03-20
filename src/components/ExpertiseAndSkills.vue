@@ -36,6 +36,7 @@
     &__title {
       font-size: 1.8em;
       margin-bottom: 20px;
+      font-weight: 700;
     }
 
     &__expertise {
