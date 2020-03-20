@@ -34,7 +34,7 @@
     display: flex;
 
     &__title {
-      font-size: 1.8em;
+      font-size: 1.7em;
       margin-bottom: 20px;
       font-weight: 700;
     }

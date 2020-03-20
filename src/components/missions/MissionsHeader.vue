@@ -12,6 +12,6 @@
   .missions-header {
     margin: 50px;
     font-weight: 700;
-    font-size: 2em;
+    font-size: 1.7em;
   }
 </style>

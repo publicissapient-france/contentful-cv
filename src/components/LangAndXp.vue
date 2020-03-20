@@ -26,7 +26,7 @@
     border-top: solid 1px #E0E0E0;
     display: flex;
     padding: 3px 50px;
-    font-size: 1.1em;
+    font-size: .9em;
     margin-top: 160px;
 
     &__lang {
