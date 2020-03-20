@@ -27,7 +27,7 @@
 
     &__title {
       font-weight: 700;
-      font-size: 2em;
+      font-size: 1.7em;
       margin-bottom: 25px;
     }
 
