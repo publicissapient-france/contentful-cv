@@ -39,7 +39,13 @@
         <Footer/>
       </div>
     </div>
-    <h1 class="cv__loading" v-else>⏳ Récupération des données de Contentful...</h1>
+    <div class="cv__loading" v-else>
+      <p>⏳ Récupération des données de Contentful...</p>
+      <div v-if="error">
+        <p>❌ Une erreur est survenue lors de la récupération du CV.</p>
+        <p>💡 Vérifiez les données Contentful et essayez à nouveau.</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -74,19 +80,28 @@
     },
     data() {
       return {
-        cv: {}
+        cv: {},
+        error: false,
       };
     },
     async mounted() {
+      document.title = '⏳ Curriculum vitae';
+      this.error = false;
       const token = await this.$auth.getTokenSilently();
-      const client = Contentful.createClient({
-        host: process.env.VUE_APP_API_HOST,
-        basePath: `/people/${this.$route.params.id}/cv`,
-        space: 's',
-        accessToken: token,
-      });
-      const entries = await client.getEntries();
-      this.cv = entries.items[0].fields;
+      try {
+        const client = Contentful.createClient({
+          host: process.env.VUE_APP_API_HOST,
+          basePath: `/people/${this.$route.params.id}/cv`,
+          space: 's',
+          accessToken: token,
+        });
+        const entries = await client.getEntries();
+        this.cv = entries.items[0].fields;
+        document.title = `CV ${this.cv.firstName} ${this.cv.name}`;
+      } catch (e) {
+        this.error = true;
+        document.title = `❌ Curriculum vitae`;
+      }
     },
     computed: {
       techIcons() {
@@ -136,6 +151,7 @@
 <style scoped lang="scss">
   .cv {
     &__loading {
+      font-size: 1.1em;
       text-align: center;
       margin: 50px;
     }
