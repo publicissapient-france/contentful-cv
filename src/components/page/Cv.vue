@@ -41,6 +41,7 @@
     </div>
     <div class="cv__loading" v-else>
       <p>⏳ Récupération des données de Contentful...</p>
+      <p>Un peu long la première fois, la lambda se chauffe 🔥...</p>
       <div v-if="error">
         <p>❌ Une erreur est survenue lors de la récupération du CV.</p>
         <p>💡 Vérifiez les données Contentful et essayez à nouveau.</p>
