@@ -14,7 +14,7 @@
       <RichTextRenderer :document="mission.client.description"/>
       <RichTextRenderer :document="mission.description"/>
     </div>
-    <div class="mission__tldr">
+    <div class="mission__tldr" v-if="mission.tldr">
       <RichTextRenderer :document="mission.tldr"/>
     </div>
   </div>
