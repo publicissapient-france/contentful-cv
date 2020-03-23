@@ -18,15 +18,17 @@
         </div>
       </div>
     </li>
-    <li v-if="talks" class="info-content__step info-content__title">Speaker</li>
-    <li v-for="talk in talks" :key="talk.subject" class="info-content__step">
-      <div class="info-content__step-inside">
-        <span class="info-content__year">{{talk.year}}</span> - {{talk.subject}}
-        <div>
-          <span class="info-content__talks-conference">{{talk.conference}}</span> <span v-if="talk.place">({{talk.place}})</span>
+    <ul class="info-content__step-group">
+      <li v-if="talks" class="info-content__step info-content__title">Speaker</li>
+      <li v-for="talk in talks" :key="talk.subject" class="info-content__step">
+        <div class="info-content__step-inside">
+          <span class="info-content__year">{{talk.year}}</span> - {{talk.subject}}
+          <div>
+            <span class="info-content__talks-conference">{{talk.conference}}</span> <span v-if="talk.place">({{talk.place}})</span>
+          </div>
         </div>
-      </div>
-    </li>
+      </li>
+    </ul>
   </ul>
 </template>
 
@@ -64,7 +66,7 @@
     $self: &;
 
     &--2columns {
-      > #{$self}__step {
+      > #{$self}__step, #{$self}__step-group {
         width: 44%;
       }
     }
@@ -75,6 +77,10 @@
 
     &__step {
       margin: 5px 25px;
+    }
+
+    &__step-group {
+      break-inside: avoid;
     }
 
     &__title {
