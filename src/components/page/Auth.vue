@@ -14,7 +14,10 @@
         <button class="auth__button" @click="login">Se connecter</button>
       </div>
       <div v-if="$auth.isAuthenticated">
-        <button class="auth__button" @click="goCv">Consulter le CV</button>
+        <button class="auth__button" @click="goCvFr">Consulter le CV en 🇫🇷</button>
+      </div>
+      <div v-if="$auth.isAuthenticated">
+        <button class="auth__button" @click="goCvEn">Consulter le CV en 🇬🇧</button>
       </div>
       <div v-if="$auth.isAuthenticated">
         <button class="auth__button" @click="logout">Se déconnecter</button>
@@ -35,8 +38,11 @@
       login() {
         this.$auth.loginWithRedirect();
       },
-      goCv() {
-        this.$router.push(`/cv/${this.email.length > 1 ? this.email : this.$auth.user.email}`);
+      goCvFr() {
+        this.$router.push(`/cv/${this.email.length > 1 ? this.email : this.$auth.user.email}?lang=fr`);
+      },
+      goCvEn() {
+        this.$router.push(`/cv/${this.email.length > 1 ? this.email : this.$auth.user.email}?lang=en`);
       },
       logout() {
         this.$auth.logout({

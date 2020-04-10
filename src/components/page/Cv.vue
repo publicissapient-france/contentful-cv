@@ -96,7 +96,7 @@
           space: 's',
           accessToken: token,
         });
-        const entries = await client.getEntries();
+        const entries = await client.getEntries({locale: this.$route.query.lang});
         this.cv = entries.items[0].fields;
         document.title = `CV ${this.cv.firstName} ${this.cv.name}`;
       } catch (e) {
