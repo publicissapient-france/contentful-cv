@@ -4,7 +4,7 @@
       {{languages.join(', ')}}
     </div>
     <div class="lang-xp__xp" v-if="graduateDate">
-      <span class="lang-xp__count">{{experience}}</span> ans d‘expérience
+      <span class="lang-xp__count">{{experience}}</span> {{ $tc('year_xp', experience) }}
     </div>
   </div>
 </template>

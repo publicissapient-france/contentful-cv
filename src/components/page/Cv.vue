@@ -85,6 +85,9 @@
         error: false,
       };
     },
+    created() {
+      this.$i18n.locale = this.locale;
+    },
     async mounted() {
       document.title = '⏳ Curriculum vitae';
       this.error = false;
@@ -96,15 +99,18 @@
           space: 's',
           accessToken: token,
         });
-        const entries = await client.getEntries({locale: this.$route.query.lang});
+        const entries = await client.getEntries({locale: this.locale});
         this.cv = entries.items[0].fields;
-        document.title = `CV ${this.cv.firstName} ${this.cv.name}`;
+        document.title = `${this.locale.toUpperCase()} CV ${this.cv.firstName} ${this.cv.name}`;
       } catch (e) {
         this.error = true;
         document.title = `❌ Curriculum vitae`;
       }
     },
     computed: {
+      locale() {
+        return this.$route.query.lang;
+      },
       techIcons() {
         return this.cv.techIcons ? this.cv.techIcons.map(ti => ({
           src: ti.fields.file.url,

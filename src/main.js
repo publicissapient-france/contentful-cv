@@ -1,8 +1,10 @@
 import Vue from 'vue';
+import VueI18n from 'vue-i18n'
 import VueRouter from 'vue-router';
 import router from '@/router';
 import App from '@/App';
 import {Auth0Plugin} from '@/auth';
+import messages from '@/lang/messages';
 
 Vue.config.productionTip = false;
 
@@ -19,9 +21,17 @@ Vue.use(Auth0Plugin, {
   }
 });
 
+Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+  locale: 'en',
+  messages,
+});
+
 Vue.use(VueRouter);
 
 new Vue({
+  i18n,
   router,
   render: h => h(App),
 }).$mount('#app');

@@ -1,5 +1,5 @@
 <template>
-  <div class="missions-header">Détails des dernières missions</div>
+  <div class="missions-header">{{ $t('heading.last_missions') }}</div>
 </template>
 
 <script>

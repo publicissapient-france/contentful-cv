@@ -1,6 +1,6 @@
 <template>
   <ul class="info-content" :class="mode">
-    <li class="info-content__step info-content__title">Parcours</li>
+    <li class="info-content__step info-content__title">{{ $t('heading.background') }}</li>
     <li v-for="step in background" :key="step.description" class="info-content__step">
       <div class="info-content__step-inside">
         <span class="info-content__year">{{step.year}}</span> - <span class="info-content__background-name">{{step.name}}</span>
@@ -9,7 +9,7 @@
         </div>
       </div>
     </li>
-    <li v-if="posts" class="info-content__step info-content__title">Publications</li>
+    <li v-if="posts" class="info-content__step info-content__title">{{ $t('heading.publications') }}</li>
     <li v-for="post in posts" :key="post.title" class="info-content__step">
       <div class="info-content__step-inside">
         <span class="info-content__year">{{post.year}}</span> - <span class="info-content__posts-target">{{post.postTarget}}</span>
@@ -19,7 +19,7 @@
       </div>
     </li>
     <ul class="info-content__step-group">
-      <li v-if="talks" class="info-content__step info-content__title">Speaker</li>
+      <li v-if="talks" class="info-content__step info-content__title">{{ $t('heading.speaker') }}</li>
       <li v-for="talk in talks" :key="talk.subject" class="info-content__step">
         <div class="info-content__step-inside">
           <span class="info-content__year">{{talk.year}}</span> - {{talk.subject}}

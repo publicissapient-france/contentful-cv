@@ -2,7 +2,7 @@
   <table class="footer">
     <tr>
       <td class="footer__address"><span>Publicis Sapient Engineering</span> - 94 avenue Gambetta - 75020 Paris</td>
-      <td class="footer__contact"><span>Tél</span> : 01 53 89 99 99 - <span>Fax</span> : 01 53 89 99 97</td>
+      <td class="footer__contact">{{ $t('footer.contact') }}</td>
     </tr>
   </table>
 </template>

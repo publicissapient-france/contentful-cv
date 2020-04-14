@@ -4,7 +4,7 @@
       <img class="mission__client-image" :src="mission.client.image.src" :alt="mission.client.image.alt">
       <div class="mission__header">
         <div class="mission__client-name">{{mission.client.name}}</div>
-        <div class="mission__duration">{{duration}} mois</div>
+        <div class="mission__duration">{{ $tc('month', duration) }}</div>
       </div>
     </div>
     <div class="mission__role">

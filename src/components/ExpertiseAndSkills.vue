@@ -1,13 +1,13 @@
 <template>
   <div class="expertise-and-skills">
     <div class="expertise-and-skills__expertise">
-      <div class="expertise-and-skills__title">Mon Expertise</div>
+      <div class="expertise-and-skills__title">{{ $t('heading.expertise') }}</div>
       <div v-if="expertises">
         <RichTextRenderer :document="expertises"/>
       </div>
     </div>
     <div class="expertise-and-skills__skills">
-      <div class="expertise-and-skills__title">Mes Skills</div>
+      <div class="expertise-and-skills__title">{{ $t('heading.skills') }}</div>
       <div v-if="skills">
         <RichTextRenderer :document="skills"/>
       </div>
