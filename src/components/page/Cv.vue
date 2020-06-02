@@ -109,7 +109,7 @@
     },
     computed: {
       locale() {
-        return this.$route.query.lang;
+        return this.$route.query.lang ? this.$route.query.lang : 'fr';
       },
       techIcons() {
         return this.cv.techIcons ? this.cv.techIcons.map(ti => ({
