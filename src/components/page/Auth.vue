@@ -55,7 +55,7 @@
 
 <style scoped lang="scss">
   .auth {
-    width: 420px;
+    width: 500px;
     margin: auto;
     text-align: center;
     padding: 50px;
