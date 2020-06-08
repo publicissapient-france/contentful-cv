@@ -62,6 +62,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     max-height: 550px;
+    page-break-after: always;
 
     $self: &;
 

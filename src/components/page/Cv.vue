@@ -19,9 +19,7 @@
           <tbody>
           <tr>
             <td>
-              <Page>
-                <InfoContent :background="background" :talks="talks" :posts="posts"/>
-              </Page>
+              <InfoContent :background="background" :talks="talks" :posts="posts"/>
               <Mission v-for="(mission, index) in missions" :mission="mission" :key="index" :hasHeader="index===0"/>
             </td>
           </tr>

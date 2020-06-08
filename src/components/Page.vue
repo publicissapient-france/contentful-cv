@@ -14,5 +14,6 @@
   .page {
     height: 1123px;
     overflow: hidden;
+    page-break-after: always;
   }
 </style>

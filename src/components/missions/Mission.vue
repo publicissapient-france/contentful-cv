@@ -78,12 +78,15 @@
     }
 
     &__tldr {
-      column-count: 2;
-      column-gap: 10px;
+      padding: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      max-height: 400px;
+      overflow: hidden;
 
-      > ul {
-        display: inline-block;
-        width: 100%;
+      > p, ul {
+        width: 50%;
       }
     }
   }
