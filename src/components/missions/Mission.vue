@@ -1,21 +1,22 @@
 <template>
-  <div class="mission" v-if="mission">
-    <div class="mission__unbreakable">
+  <div class="mission">
+    <MissionsHeader v-if="hasHeader"/>
+    <div v-if="mission">
       <img class="mission__client-image" :src="mission.client.image.src" :alt="mission.client.image.alt">
       <div class="mission__header">
         <div class="mission__client-name">{{mission.client.name}}</div>
         <div class="mission__duration">{{ $tc('month', duration) }}</div>
       </div>
-    </div>
-    <div class="mission__role">
-      {{mission.role}}
-    </div>
-    <div class="mission__description">
-      <RichTextRenderer :document="mission.client.description"/>
-      <RichTextRenderer :document="mission.description"/>
-    </div>
-    <div class="mission__tldr" v-if="mission.tldr">
-      <RichTextRenderer :document="mission.tldr"/>
+      <div class="mission__role">
+        {{mission.role}}
+      </div>
+      <div class="mission__description">
+        <RichTextRenderer :document="mission.client.description"/>
+        <RichTextRenderer :document="mission.description"/>
+      </div>
+      <div class="mission__tldr" v-if="mission.tldr">
+        <RichTextRenderer :document="mission.tldr"/>
+      </div>
     </div>
   </div>
 </template>
@@ -23,13 +24,15 @@
 <script>
   import RichTextRenderer from 'contentful-rich-text-vue-renderer';
   import dayjs from 'dayjs';
+  import MissionsHeader from '@/components/missions/MissionsHeader';
 
   export default {
     name: 'Mission',
     components: {
       RichTextRenderer,
+      MissionsHeader,
     },
-    props: ['mission'],
+    props: ['mission', 'hasHeader'],
     computed: {
       duration() {
         let endDate = new Date();
@@ -44,11 +47,8 @@
 
 <style scoped lang="scss">
   .mission {
-    padding: 0 50px 50px 50px;
-
-    &__unbreakable {
-      page-break-inside: avoid;
-    }
+    padding: 150px 50px 0 50px;
+    page-break-after: always;
 
     &__client-image {
       max-height: 110px;
@@ -78,17 +78,12 @@
     }
 
     &__tldr {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      max-height: 250px;
-      padding: 5px;
-      overflow: hidden;
-      page-break-inside: avoid;
+      column-count: 2;
+      column-gap: 10px;
 
-      > * {
-        margin: 0 20px;
-        width: 42%;
+      > ul {
+        display: inline-block;
+        width: 100%;
       }
     }
   }

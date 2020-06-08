@@ -57,7 +57,7 @@
 
 <style scoped lang="scss">
   .info-content {
-    padding: 50px 62px;
+    padding: 150px 62px 50px 62px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

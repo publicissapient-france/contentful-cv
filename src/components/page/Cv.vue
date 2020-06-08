@@ -13,23 +13,22 @@
           <thead>
           <tr>
             <td>
-              <div style="height: 120px">&nbsp;</div>
             </td>
           </tr>
           </thead>
           <tbody>
           <tr>
             <td>
-              <InfoContent :background="background" :talks="talks" :posts="posts"/>
-              <MissionsHeader/>
-              <Mission v-for="(mission, index) in missions" :mission="mission" :key="index"/>
+              <Page>
+                <InfoContent :background="background" :talks="talks" :posts="posts"/>
+              </Page>
+              <Mission v-for="(mission, index) in missions" :mission="mission" :key="index" :hasHeader="index===0"/>
             </td>
           </tr>
           </tbody>
           <tfoot>
           <tr>
             <td>
-              <div style="height: 50px">&nbsp;</div>
             </td>
           </tr>
           </tfoot>
@@ -53,7 +52,6 @@
 <script>
   import InfoContent from '@/components/background/InfoContent';
   import ExpertiseAndSkills from '@/components/ExpertiseAndSkills';
-  import MissionsHeader from '@/components/missions/MissionsHeader';
   import Mission from '@/components/missions/Mission';
   import Page from '@/components/Page';
   import Header from '@/components/header/Header';
@@ -69,7 +67,6 @@
     components: {
       InfoContent,
       ExpertiseAndSkills,
-      MissionsHeader,
       Mission,
       Page,
       Header,
