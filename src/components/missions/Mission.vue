@@ -47,7 +47,7 @@
 
 <style scoped lang="scss">
   .mission {
-    padding: 150px 50px 0 50px;
+    padding: 190px 50px 50px 50px;
     page-break-after: always;
 
     &__client-image {

@@ -20,6 +20,13 @@
     html, body {
       width: 210mm;
       height: 297mm;
+      border: 0;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tfoot {
+      display: table-footer-group;
     }
   }
 
