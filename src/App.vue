@@ -36,7 +36,7 @@
   }
 
   ul {
-    margin: 5px 0;
+    margin: 5px;
     padding-left: 10px;
     list-style: none;
 

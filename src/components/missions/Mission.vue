@@ -78,7 +78,6 @@
     }
 
     &__tldr {
-      padding: 5px;
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
