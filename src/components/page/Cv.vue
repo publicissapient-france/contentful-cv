@@ -20,7 +20,7 @@
           <tbody>
           <tr>
             <td>
-<!--              <InfoContent :background="background" :talks="talks" :posts="posts"/>-->
+              <InfoContent :background="background" :talks="talks" :posts="posts"/>
               <Mission v-for="(mission, index) in missions" :mission="mission" :key="index" :hasHeader="index===0"/>
             </td>
           </tr>
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-  // import InfoContent from '@/components/background/InfoContent';
+  import InfoContent from '@/components/background/InfoContent';
   import ExpertiseAndSkills from '@/components/ExpertiseAndSkills';
   import Mission from '@/components/missions/Mission';
   import Page from '@/components/Page';
@@ -65,7 +65,7 @@
   export default {
     name: 'Cv',
     components: {
-      // InfoContent,
+      InfoContent,
       ExpertiseAndSkills,
       Mission,
       Page,
