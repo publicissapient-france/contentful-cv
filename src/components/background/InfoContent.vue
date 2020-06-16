@@ -73,15 +73,21 @@
     }
 
     &--many {
-      max-height: 850px;
+      max-height: 900px;
     }
 
     &__step {
       margin: 5px 25px;
+
+      &:last-of-type {
+        margin-bottom: 25px;
+      }
     }
 
     &__step-group {
       break-inside: avoid;
+      margin: 0;
+      padding: 0;
     }
 
     &__title {
