@@ -98,7 +98,7 @@
         });
         const entries = await client.getEntries({locale: this.locale});
         this.cv = entries.items[0].fields;
-        document.title = `${this.locale.toUpperCase()} CV ${this.cv.firstName} ${this.cv.name}`;
+        document.title = `${this.locale.toUpperCase()} - ${this.cv.name.toUpperCase()} ${this.cv.firstName} - PS Engineering - 2020`;
       } catch (e) {
         this.error = true;
         document.title = `❌ Curriculum vitae`;
