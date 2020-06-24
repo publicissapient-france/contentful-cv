@@ -21,7 +21,7 @@
           <tr>
             <td>
               <InfoContent :background="background" :talks="talks" :posts="posts"/>
-              <Mission v-for="(mission, index) in missions" :mission="mission" :key="index" :hasHeader="index===0"/>
+              <Mission v-for="(mission, index) in missions()" :mission="mission" :key="index" :hasHeader="index===0"/>
             </td>
           </tr>
           </tbody>
@@ -43,7 +43,10 @@
       <p>Un peu long la première fois, la lambda se chauffe 🔥...</p>
       <div v-if="error">
         <p>❌ Une erreur est survenue lors de la récupération du CV.</p>
-        <p>💡 Vérifiez les données Contentful et essayez à nouveau.</p>
+        <p>💡 Vérifiez les données Contentful et essayez à nouveau : tous les champs Contentful doivent être publiés
+          (pas de Draft). Vérifiez notamment les clients dans les
+          missions.
+        </p>
       </div>
     </div>
   </div>
@@ -104,6 +107,27 @@
         document.title = `❌ Curriculum vitae`;
       }
     },
+    methods: {
+      missions() {
+        try {
+          return this.cv.missions ? this.cv.missions.map(m => ({
+            ...m.fields,
+            client: {
+              name: m.fields.client.fields.name,
+              description: m.fields.client.fields.description,
+              image: {
+                src: m.fields.client.fields.image.fields.file.url,
+                alt: m.fields.client.fields.image.fields.title,
+              }
+            },
+          })) : null;
+        } catch (_) {
+          this.cv = {};
+          this.error = true;
+          document.title = `❌ Curriculum vitae`;
+        }
+      },
+    },
     computed: {
       locale() {
         return this.$route.query.lang ? this.$route.query.lang : 'fr';
@@ -119,19 +143,6 @@
           src: this.cv.picture.fields.file.url,
           alt: this.cv.picture.fields.title
         } : null
-      },
-      missions() {
-        return this.cv.missions ? this.cv.missions.map(m => ({
-          ...m.fields,
-          client: {
-            name: m.fields.client.fields.name,
-            description: m.fields.client.fields.description,
-            image: {
-              src: m.fields.client.fields.image.fields.file.url,
-              alt: m.fields.client.fields.image.fields.title,
-            }
-          },
-        })) : null;
       },
       background() {
         return this.cv.background ? this.cv.background.map(b => ({
