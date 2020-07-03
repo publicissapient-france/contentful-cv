@@ -6,6 +6,7 @@ auth_config.json
 # local env files
 .env.local
 .env.*.local
+.envrc
 
 # Log files
 npm-debug.log*
@@ -20,3 +21,6 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Build
+*.csv

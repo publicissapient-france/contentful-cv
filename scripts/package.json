@@ -1,0 +1,24 @@
+{
+  "name": "contentful-cv-scripts",
+  "version": "1.0.0",
+  "description": "Contentful CV tooling",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xebia-france/contentful-cv.git"
+  },
+  "author": "PS Engineering (Xebia)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xebia-france/contentful-cv/issues"
+  },
+  "homepage": "https://github.com/xebia-france/contentful-cv#readme",
+  "dependencies": {
+    "contentful": "^7.14.5"
+  },
+  "devDependencies": {
+    "json2csv": "^5.0.1"
+  }
+}
