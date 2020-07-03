@@ -2,9 +2,6 @@
   "name": "contentful-cv-scripts",
   "version": "1.0.0",
   "description": "Contentful CV tooling",
-  "scripts": {
-    "test": "jest"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/xebia-france/contentful-cv.git"
