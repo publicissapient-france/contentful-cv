@@ -1,6 +1,7 @@
 const messages = {
   fr: {
-    month: '< mois | {count} mois',
+    mission_months: ' | {count} mois | {count} mois',
+    mission_years: ' | {count} an | {count} ans',
     year_xp: 'an d\'expérience | ans d\'expérience',
     heading: {
       expertise: 'Mon Expertise',
@@ -15,7 +16,8 @@ const messages = {
     },
   },
   en: {
-    month: '< month | {count} month | {count} months',
+    mission_months: ' | {count} month | {count} months',
+    mission_years: ' | {count} year | {count} years',
     year_xp: 'year of experience | years of experience',
     heading: {
       expertise: 'My Expertise',

@@ -5,7 +5,7 @@
       <img class="mission__client-image" :src="mission.client.image.src" :alt="mission.client.image.alt">
       <div class="mission__header">
         <div class="mission__client-name">{{mission.client.name}}</div>
-        <div class="mission__duration">{{ $tc('month', duration) }}</div>
+        <div class="mission__duration">{{ $tc('mission_years', duration[0]) }} {{ $tc('mission_months', duration[1]) }}</div>
       </div>
       <div class="mission__role">
         {{mission.role}}
@@ -39,7 +39,9 @@
         if (this.mission.endDate) {
           endDate = this.mission.endDate;
         }
-        return dayjs(endDate).diff(this.mission.beginDate, 'month');
+        let years = dayjs(endDate).diff(this.mission.beginDate, 'year')
+        let months = dayjs(endDate).diff(dayjs(this.mission.beginDate).add(years, 'year'), 'month')
+        return [years, months];
       },
     },
   }
