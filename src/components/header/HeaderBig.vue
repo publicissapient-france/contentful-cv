@@ -45,9 +45,12 @@
     }
 
     &__brand {
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      width : 200px;
       height: $height;
-      padding-right: 25px;
-      padding-left: 50px;
+      padding-left: 25px;
       background-color: #000000;
     }
 

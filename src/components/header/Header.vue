@@ -54,6 +54,7 @@
 
     &__logo {
       height: 100%;
+      padding-right: 50px;
     }
   }
 </style>

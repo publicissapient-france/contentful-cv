@@ -101,7 +101,7 @@
         });
         const entries = await client.getEntries({locale: this.locale});
         this.cv = entries.items[0].fields;
-        document.title = `${this.cv.name.toUpperCase()} ${this.cv.firstName} - PS Engineering - 2020 - ${this.locale.toUpperCase()}`;
+        document.title = `${this.cv.name.toUpperCase()} ${this.cv.firstName} - Publicis Sapient France DBT - ${this.currentYear()} - ${this.locale.toUpperCase()}`;
       } catch (e) {
         this.error = true;
         document.title = `❌ Curriculum vitae`;
@@ -158,6 +158,9 @@
         return this.cv.posts ? this.cv.posts.map(t => ({
           ...t.fields
         })) : null;
+      },
+      currentYear() {
+        return new Date().getFullYear()
       }
     }
   }
