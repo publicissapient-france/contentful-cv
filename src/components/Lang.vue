@@ -1,7 +1,7 @@
 <template>
-  <div class="lang" v-if="languages">
+  <strong class="lang" v-if="languages">
     {{languages.join(', ')}}
-  </div>
+  </strong>
 </template>
 
 <script>
@@ -15,5 +15,6 @@
 <style scoped lang="scss">
   .lang {
     flex-grow: 1;
+    color: #FFFFFF;
   }
 </style>

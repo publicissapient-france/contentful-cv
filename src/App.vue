@@ -12,7 +12,9 @@
 
 <style lang="scss">
 
+  @import "@/style/reset";
   @import "@/style/variables";
+  @import "@/style/theme";
 
   @page {
     size: A4;
@@ -36,8 +38,8 @@
   }
 
   div.landscape-content {
-    background-color: lightgray;
     page: landscape;
+    border: 1px solid lightgray;
   }
 
   body {
@@ -76,9 +78,11 @@
 
   #app {
     margin: auto;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: FuturaNext, sans-serif;
+    font-weight: 400;
+    font-smooth: always;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2B2B2B;
+    color: #000000;
   }
 </style>

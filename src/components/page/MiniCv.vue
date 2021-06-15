@@ -3,23 +3,48 @@
     <div class="cv__loaded" v-if="cv.id">
       <PageLandscape>
         <div class="cv__container">
-          <div class="column">
-            <div class="bio__container__image">
-              <img v-if="picture" class="bio__image" :src="picture.src" :alt="picture.alt">
-              <Lang v-bind="cv"/>
-              <Xp v-bind="cv"/>
+          <div class="column__left">
+            <div>
+              <img v-if="picture" class="cv__image" :src="picture.src" :alt="picture.alt">
+              <div class="cv__container__xpAndLang">
+                <Xp v-bind="cv"/>
+                <Lang v-bind="cv"/>
+              </div>
             </div>
+            <Expertise v-bind="cv"/>
 
           </div>
-          <div class="column">
+          <div class="column__right">
             <div class="header__info">
-              <div class="header__name">{{cv.firstName}} {{cv.name}}</div>
-              <div class="header__role">{{cv.role}}</div>
+              <div class="header__name heading1">{{cv.firstName}} {{cv.name}}</div>
+              <div class="header__role heading2">{{cv.role}}</div>
             </div>
+            <div class="introAndtech">
+              <div class="bio__title  heading3">{{ $t('heading.introduction') }}</div>
+              <div class="tech-icons">
+                <div class="tech-icons__item" v-for="(icon, index) in techIcons" :key="icon.alt">
+                  <img class="tech-icons__image" :id="index" :src="icon.src" alt="icon.alt">
+                  <label :for="index">{{icon.alt}}</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="separator"/>
+            <div class="bio__description" v-if="cv.biography">
+              <RichTextRenderer :document="cv.biography"/>
+            </div>
+            <div class="bio__title  heading3">{{ $t('heading.some_missions') }}</div>
+            <div class="separator"/>
+            <ul>
+              <li v-for="(mission, index) in missions()" :mission="mission" :key="index" :hasHeader="index===0">
+                <div class="mission__client-name">{{mission.client.name}}</div>
+                <RichTextRenderer :document="mission.description"/>
+              </li>
+            </ul>
           </div>
         </div>
       </PageLandscape>
-      <Footer/>
+      <FooterLogo/>
     </div>
 
 
@@ -39,19 +64,22 @@
 
 <script>
   import PageLandscape from '@/components/PageLandscape';
-  import Footer from '@/components/Footer';
+  import FooterLogo from '@/components/FooterLogo';
   import Xp from '@/components/Xp';
   import Lang from '@/components/Lang';
+  import Expertise from '@/components/Expertise';
+
   import * as Contentful from 'contentful';
 
+  import RichTextRenderer from 'contentful-rich-text-vue-renderer';
 
   export default {
     name: 'MiniCv',
     components: {
       PageLandscape,
-      Footer,
+      FooterLogo,
       Xp,
-      Lang
+      Lang, Expertise, RichTextRenderer
     },
     data() {
       return {
@@ -80,11 +108,13 @@
         this.error = true;
         document.title = `❌ Curriculum vitae`;
       }
+
+      console.log('missions', this.cv.missions);
     },
     methods: {
       missions() {
         try {
-          return this.cv.missions ? this.cv.missions.map(m => ({
+          return this.cv.missions ? this.cv.missions.slice(0,3).map(m => ({
             ...m.fields,
             client: {
               name: m.fields.client.fields.name,
@@ -142,6 +172,7 @@
 
 <style scoped lang="scss">
   @import "@/style/variables";
+  @import "@/style/theme";
 
   .cv {
     width: $PTT-width-px;
@@ -157,10 +188,11 @@
     &__loaded {
       width: inherit;
 
-      .column {
+      .column__left, .column__right {
         display: flex;
         flex-direction: column;
-        height: 40px;
+        height: 100%;
+
 
         &:first-child {
           width: 330px;
@@ -169,7 +201,7 @@
           width: calc(100% - 330px);
         }
 
-        & .bio__image{
+        & .cv__image{
           width:330px;
           height:330px;
         }
@@ -178,6 +210,97 @@
 
     &__container {
       display: flex;
+      height: 100%;
+
+      &__xpAndLang{
+        background-color: $primary;
+        padding:10px 25px;
+        position: absolute;
+        bottom: 0;
+        width : 100%;
+
+      }
     }
+  }
+
+  .column__left{
+    background-color: $grey-S;
+
+    &>div:first-child{
+      position: relative;
+    }
+
+    &>div:nth-child(2){
+      padding: 50px 25px;
+    }
+
+  }
+
+  .column__right{
+    padding: 50px 25px;
+
+    & .tech-icons__image {
+        height: 20px;
+        margin-bottom: 5px;
+      }
+  }
+
+  .header{
+    &__info{
+      margin-bottom: 50px;
+    }
+    &__role{
+      color: $primary;
+    }
+  }
+
+
+
+  .bio__title{
+    color: $primary;
+  }
+
+  .bio__description{
+    margin-bottom: 20px;
+    column-count: 2;
+    column-gap: 20px;
+    color: $grey-L;
+
+    & strong{
+      color: #000000;
+      font-weight: 400;
+    }
+  }
+
+  .introAndtech{
+    display: flex;
+    width : 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    .tech-icons {
+      display: flex;
+      justify-content: space-around;
+      width : 50%;
+
+      &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: .6rem;
+      }
+
+      &__image {
+        height: 30px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .separator{
+    width: 100%;
+    border-top:1px solid $grey-M;
+    margin-top: 10px;
+    margin-bottom: 30px;
   }
 </style>

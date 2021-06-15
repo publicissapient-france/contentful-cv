@@ -1,7 +1,7 @@
 <template>
-    <div class="xp" v-if="graduateDate">
-      <span class="xp__count">{{experience}}</span> {{ $tc('year_xp', experience) }}
-    </div>
+    <p class="xp" v-if="graduateDate">
+      <strong class="xp__count">{{experience}} {{ $tc('year_xp', experience) }}</strong>
+    </p>
 </template>
 
 <script>
@@ -18,9 +18,6 @@
 
 <style scoped lang="scss">
   .xp {
-    &__count {
-      color: #FE414D;
-      font-weight: 800;
-    }
+    color: #FFFFFF;
   }
 </style>

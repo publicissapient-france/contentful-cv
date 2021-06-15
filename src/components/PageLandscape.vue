@@ -13,7 +13,7 @@
 <style scoped lang="scss">
   @import "@/style/variables";
 
-  .page {
+  .page-landscape {
     height: $PTT-height-px;
     overflow: hidden;
     page-break-after: always;
