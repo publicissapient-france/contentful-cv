@@ -1,43 +1,28 @@
 <template>
-  <div class="cv">
+  <div class="cv landscape-content">
     <div class="cv__loaded" v-if="cv.id">
-      <div>
-        <Page>
-          <HeaderBig v-bind="cv"/>
-          <LangAndXp v-bind="cv"/>
-          <TechIcons :tech-icons="techIcons"/>
-          <Bio :picture="picture" :biography="cv.biography"/>
-          <ExpertiseAndSkills v-bind="cv"/>
-        </Page>
-        <table>
-          <thead>
-          <tr>
-            <td>
-              <div style="height: 120px">&nbsp;</div>
-            </td>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>
-              <InfoContent :background="background" :talks="talks" :posts="posts"/>
-              <Mission v-for="(mission, index) in missions()" :mission="mission" :key="index" :hasHeader="index===0"/>
-            </td>
-          </tr>
-          </tbody>
-          <tfoot>
-          <tr>
-            <td>
-              <div style="height: 50px">&nbsp;</div>
-            </td>
-          </tr>
-          </tfoot>
-        </table>
+      <PageLandscape>
+        <div class="cv__container">
+          <div class="column">
+            <div class="bio__container__image">
+              <img v-if="picture" class="bio__image" :src="picture.src" :alt="picture.alt">
+              <Lang v-bind="cv"/>
+              <Xp v-bind="cv"/>
+            </div>
 
-        <Header v-bind="cv"/>
-        <Footer/>
-      </div>
+          </div>
+          <div class="column">
+            <div class="header__info">
+              <div class="header__name">{{cv.firstName}} {{cv.name}}</div>
+              <div class="header__role">{{cv.role}}</div>
+            </div>
+          </div>
+        </div>
+      </PageLandscape>
+      <Footer/>
     </div>
+
+
     <div class="cv__loading" v-else>
       <p>⏳ Récupération des données de Contentful...</p>
       <p>Un peu long la première fois, la lambda se chauffe 🔥...</p>
@@ -49,36 +34,24 @@
         </p>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
-  import InfoContent from '@/components/background/InfoContent';
-  import ExpertiseAndSkills from '@/components/ExpertiseAndSkills';
-  import Mission from '@/components/missions/Mission';
-  import Page from '@/components/Page';
-  import Header from '@/components/header/Header';
+  import PageLandscape from '@/components/PageLandscape';
   import Footer from '@/components/Footer';
-  import Bio from '@/components/Bio';
-  import TechIcons from '@/components/TechIcons';
-  import LangAndXp from '@/components/LangAndXp';
-  import HeaderBig from '@/components/header/HeaderBig';
+  import Xp from '@/components/Xp';
+  import Lang from '@/components/Lang';
   import * as Contentful from 'contentful';
 
+
   export default {
-    name: 'Cv',
+    name: 'MiniCv',
     components: {
-      InfoContent,
-      ExpertiseAndSkills,
-      Mission,
-      Page,
-      Header,
+      PageLandscape,
       Footer,
-      Bio,
-      TechIcons,
-      LangAndXp,
-      HeaderBig
+      Xp,
+      Lang
     },
     data() {
       return {
@@ -171,7 +144,8 @@
   @import "@/style/variables";
 
   .cv {
-    width: $A4-width-px;
+    width: $PTT-width-px;
+    height: $PTT-height-px;
     margin: auto;
 
     &__loading {
@@ -179,6 +153,31 @@
       text-align: center;
       margin: 50px;
     }
-  }
 
+    &__loaded {
+      width: inherit;
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        height: 40px;
+
+        &:first-child {
+          width: 330px;
+        }
+        &:nth-child(2) {
+          width: calc(100% - 330px);
+        }
+
+        & .bio__image{
+          width:330px;
+          height:330px;
+        }
+      }
+    }
+
+    &__container {
+      display: flex;
+    }
+  }
 </style>

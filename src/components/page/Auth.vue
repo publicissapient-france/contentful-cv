@@ -20,6 +20,12 @@
         <button class="auth__button" @click="goCvEn">Consulter le CV en 🇬🇧</button>
       </div>
       <div v-if="$auth.isAuthenticated">
+        <button class="auth__button" @click="goMiniCvFr">Consulter le mini CV en 🇫🇷</button>
+      </div>
+      <div v-if="$auth.isAuthenticated">
+        <button class="auth__button" @click="goCvEn">Consulter le mini CV en 🇬🇧</button>
+      </div>
+      <div v-if="$auth.isAuthenticated">
         <button class="auth__button" @click="logout">Se déconnecter</button>
       </div>
     </div>
@@ -44,6 +50,9 @@
       goCvEn() {
         this.$router.push(`/cv/${this.email.length > 1 ? this.email : this.$auth.user.email}?lang=en`);
       },
+      goMiniCvFr() {
+        this.$router.push(`/mini-cv/${this.email.length > 1 ? this.email : this.$auth.user.email}?lang=fr`);
+      },
       logout() {
         this.$auth.logout({
           returnTo: window.location.origin
@@ -61,18 +70,30 @@
     padding: 50px;
 
     &__button {
+      width : 100%;
       background-color: #FE414D;
       color: #FFFFFF;
       height: 30px;
       border: none;
       border-radius: 3px;
-      margin: 10px;
+      cursor: pointer;
     }
 
     &__container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       margin: 20px 0;
+
+      &>div{
+        width : calc(50% - 10px);
+        margin-bottom: 10px;
+
+        &:nth-child(2n){
+          margin-left:20px;
+        }
+
+      }
     }
 
     &__label {

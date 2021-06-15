@@ -11,15 +11,20 @@
 </script>
 
 <style lang="scss">
+
+  @import "@/style/variables";
+
   @page {
     size: A4;
     margin: 0;
   }
 
+  @page landscape {
+    size: $PTT-width-mm $PTT-height-mm ;
+  }
+
   @media print {
     html, body {
-      width: 210mm;
-      height: 297mm;
       border: 0;
     }
     thead {
@@ -28,6 +33,11 @@
     tfoot {
       display: table-footer-group;
     }
+  }
+
+  div.landscape-content {
+    background-color: lightgray;
+    page: landscape;
   }
 
   body {
@@ -65,7 +75,6 @@
   }
 
   #app {
-    width: 794px; /* 96 ppi */
     margin: auto;
     font-family: 'Nunito Sans', sans-serif;
     -webkit-font-smoothing: antialiased;

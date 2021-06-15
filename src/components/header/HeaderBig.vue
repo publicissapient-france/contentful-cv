@@ -30,7 +30,7 @@
   .header {
     z-index: 1;
     position: absolute;
-    width: 794px;
+    width: 100%;
     height: $height;
     display: flex;
     background-color: #fe414d;
