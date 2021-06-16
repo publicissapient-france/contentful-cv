@@ -41,16 +41,17 @@
     &__info {
       flex-grow: 1;
       margin-left: 50px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     &__brand {
       display:flex;
       align-items: center;
       justify-content: center;
+      position:relative;
       width : 200px;
       height: $height;
-      padding-left: 25px;
+      //padding-left: 25px;
       background-color: #000000;
     }
 
@@ -67,7 +68,7 @@
       height: 100%;
       width: 70px;
       position: absolute;
-      right: 210px;
+      left:  -55px;
     }
 
     &__logo {

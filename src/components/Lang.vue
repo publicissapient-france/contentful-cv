@@ -1,7 +1,10 @@
 <template>
-  <strong class="lang" v-if="languages">
-    {{languages.join(', ')}}
-  </strong>
+  <p class="lang">
+    <img src="../assets/images/dialog-picto.png"/>
+    <strong v-if="languages">
+      {{languages.join(', ')}}
+    </strong>
+  </p>
 </template>
 
 <script>
@@ -16,5 +19,11 @@
   .lang {
     flex-grow: 1;
     color: #FFFFFF;
+    display: flex;
+
+    & img{
+      height: 20px;
+      margin-right: 10px;
+    }
   }
 </style>

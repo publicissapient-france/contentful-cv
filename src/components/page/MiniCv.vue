@@ -35,10 +35,10 @@
             </div>
             <div class="bio__title  heading3">{{ $t('heading.some_missions') }}</div>
             <div class="separator"/>
-            <ul>
+            <ul class="missions__container">
               <li v-for="(mission, index) in missions()" :mission="mission" :key="index" :hasHeader="index===0">
-                <div class="mission__client-name">{{mission.client.name}}</div>
-                <RichTextRenderer :document="mission.description"/>
+                <p class="mission__client-name heading4">{{mission.client.name}}</p>
+                <RichTextRenderer :document="mission.shortDescription"/>
               </li>
             </ul>
           </div>
@@ -118,7 +118,7 @@
             ...m.fields,
             client: {
               name: m.fields.client.fields.name,
-              description: m.fields.client.fields.description,
+              shortDescription: m.fields.client.fields.shortDescription,
               image: {
                 src: m.fields.client.fields.image.fields.file.url,
                 alt: m.fields.client.fields.image.fields.title,
@@ -191,8 +191,6 @@
       .column__left, .column__right {
         display: flex;
         flex-direction: column;
-        height: 100%;
-
 
         &:first-child {
           width: 330px;
@@ -218,6 +216,10 @@
         position: absolute;
         bottom: 0;
         width : 100%;
+
+        &>div:first-child{
+          margin-bottom: 10px;
+        }
 
       }
     }
@@ -280,14 +282,14 @@
 
     .tech-icons {
       display: flex;
-      justify-content: space-around;
-      width : 50%;
+      justify-content: flex-end;
 
       &__item {
         display: flex;
         flex-direction: column;
         align-items: center;
         font-size: .6rem;
+        margin-left : 25px;
       }
 
       &__image {
@@ -295,6 +297,21 @@
         margin-bottom: 5px;
       }
     }
+  }
+
+  .missions__container{
+    margin-left:15px;
+
+    &>li{
+      margin-bottom : 15px;
+      color: $grey-L;
+
+      &  p.mission__client-name{
+        color:#000000;
+      }
+
+    }
+
   }
 
   .separator{

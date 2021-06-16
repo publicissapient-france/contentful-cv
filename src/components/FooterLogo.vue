@@ -19,7 +19,7 @@
   @import "@/style/variables";
 
   .footer {
-    height: 45px;
+    height: 40px;
     width:$PTT-width-px ;
     position: fixed;
     bottom: 0;

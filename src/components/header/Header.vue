@@ -34,7 +34,7 @@
     &__info {
       flex-grow: 1;
       margin-left: 50px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     &__brand {
@@ -53,7 +53,7 @@
     }
 
     &__logo {
-      height: 100%;
+      width: 120px;
       padding-right: 50px;
     }
   }
