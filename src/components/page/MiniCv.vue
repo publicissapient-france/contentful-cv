@@ -3,7 +3,7 @@
     <div class="cv__loaded" v-if="cv.id">
       <PageLandscape>
         <div class="cv__container">
-          <div class="column__left">
+          <div class=cv__container__column-left">
             <div>
               <img v-if="picture" class="cv__image" :src="picture.src" :alt="picture.alt">
               <div class="cv__container__xpAndLang">
@@ -12,14 +12,13 @@
               </div>
             </div>
             <Expertise v-bind="cv"/>
-
           </div>
-          <div class="column__right">
+          <div class="cv__container__column-right">
             <div class="header__info">
               <div class="header__name heading1">{{cv.firstName}} {{cv.name}}</div>
               <div class="header__role heading2">{{cv.role}}</div>
             </div>
-            <div class="introAndtech">
+            <div class="bio-and-tech">
               <div class="bio__title  heading3">{{ $t('heading.introduction') }}</div>
               <div class="tech-icons">
                 <div class="tech-icons__item" v-for="(icon, index) in techIcons" :key="icon.alt">
@@ -28,12 +27,11 @@
                 </div>
               </div>
             </div>
-
             <div class="separator"/>
             <div class="bio__description" v-if="cv.biography">
               <RichTextRenderer :document="cv.biography"/>
             </div>
-            <div class="bio__title  heading3">{{ $t('heading.some_missions') }}</div>
+            <div class="missions__title  heading3">{{ $t('heading.some_missions') }}</div>
             <div class="separator"/>
             <ul class="missions__container">
               <li v-for="(mission, index) in missions()" :mission="mission" :key="index" :hasHeader="index===0">
@@ -114,7 +112,7 @@
     methods: {
       missions() {
         try {
-          return this.cv.missions ? this.cv.missions.slice(0,3).map(m => ({
+          return this.cv.missions ? this.cv.missions.slice(0, 3).map(m => ({
             ...m.fields,
             client: {
               name: m.fields.client.fields.name,
@@ -187,8 +185,13 @@
 
     &__loaded {
       width: inherit;
+    }
 
-      .column__left, .column__right {
+    &__container {
+      display: flex;
+      height: 100%;
+
+      &__column-left, &__column-right {
         display: flex;
         flex-direction: column;
 
@@ -198,26 +201,32 @@
         &:nth-child(2) {
           width: calc(100% - 330px);
         }
+      }
 
-        & .cv__image{
-          width:330px;
-          height:330px;
+      &__column-left {
+        background-color: $grey-S;
+
+        & > div:first-child {
+          position: relative;
+        }
+
+        & > div:nth-child(2) {
+          padding: 50px 25px;
         }
       }
-    }
 
-    &__container {
-      display: flex;
-      height: 100%;
+      &__column-right {
+        padding: 50px 25px;
+      }
 
-      &__xpAndLang{
+      &__xpAndLang {
         background-color: $primary;
-        padding:10px 25px;
+        padding: 10px 25px;
         position: absolute;
         bottom: 0;
-        width : 100%;
+        width: 100%;
 
-        &>div:first-child{
+        & > div:first-child {
           margin-bottom: 10px;
         }
 
@@ -225,98 +234,79 @@
     }
   }
 
-  .column__left{
-    background-color: $grey-S;
-
-    &>div:first-child{
-      position: relative;
-    }
-
-    &>div:nth-child(2){
-      padding: 50px 25px;
-    }
-
+  .cv__image {
+    width: 330px;
+    height: 330px;
   }
 
-  .column__right{
-    padding: 50px 25px;
-
-    & .tech-icons__image {
-        height: 20px;
-        margin-bottom: 5px;
-      }
-  }
-
-  .header{
-    &__info{
+  .header {
+    &__info {
       margin-bottom: 50px;
     }
-    &__role{
+
+    &__role {
       color: $primary;
     }
   }
 
-
-
-  .bio__title{
+  .bio__title, .missions__title {
     color: $primary;
   }
 
-  .bio__description{
+  .bio__description {
     margin-bottom: 20px;
     column-count: 2;
     column-gap: 20px;
     color: $grey-L;
 
-    & strong{
+    & strong {
       color: #000000;
       font-weight: 400;
     }
   }
 
-  .introAndtech{
+  .bio-and-tech {
     display: flex;
-    width : 100%;
+    width: 100%;
     justify-content: space-between;
     align-items: flex-end;
+  }
 
-    .tech-icons {
+  .tech-icons {
+    display: flex;
+    justify-content: flex-end;
+
+    &__item {
       display: flex;
-      justify-content: flex-end;
+      flex-direction: column;
+      align-items: center;
+      font-size: .6rem;
+      margin-left: 25px;
+    }
 
-      &__item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: .6rem;
-        margin-left : 25px;
-      }
-
-      &__image {
-        height: 30px;
-        margin-bottom: 5px;
-      }
+    &__image {
+      margin-bottom: 5px;
+      height: 20px;
+      margin-bottom: 5px;
     }
   }
 
-  .missions__container{
-    margin-left:15px;
+  .missions__container {
+    margin-left: 15px;
 
-    &>li{
-      margin-bottom : 15px;
+    & > li {
+      margin-bottom: 15px;
       color: $grey-L;
 
-      &  p.mission__client-name{
-        color:#000000;
+      & p.mission__client-name {
+        color: #000000;
       }
-
     }
-
   }
 
-  .separator{
+  .separator {
     width: 100%;
-    border-top:1px solid $grey-M;
+    border-top: 1px solid $grey-M;
     margin-top: 10px;
     margin-bottom: 30px;
   }
