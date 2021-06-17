@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import PictoDialog from '@/assets/svg/PictoDialog'
+  import PictoDialog from '@/assets/svg/PictoDialog';
 
   export default {
     name: 'Lang',

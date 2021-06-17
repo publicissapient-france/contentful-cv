@@ -35,8 +35,9 @@
             <div class="separator"/>
             <ul class="missions__container">
               <li v-for="(mission, index) in missions()" :mission="mission" :key="index" :hasHeader="index===0">
-                <p class="mission__client-name heading4">{{mission.client.name}}</p>
-                <RichTextRenderer :document="mission.shortDescription"/>
+                <p class="mission__client-name heading4">{{mission.client.name}}</p><br/>
+                <RichTextRenderer :document="mission.shortDescription" v-if="mission.shortDescription"/>
+                <p class="error-message" v-else>❌ Error : Short description of this mission is empty. Please complete on Contentful </p>
               </li>
             </ul>
           </div>

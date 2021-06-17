@@ -51,17 +51,12 @@
       position:relative;
       width : 200px;
       height: $height;
-      //padding-left: 25px;
       background-color: #000000;
     }
 
     &__name {
       color: #FFFFFF;
       font-size: 2em;
-    }
-
-    &__role {
-
     }
 
     &__curve {

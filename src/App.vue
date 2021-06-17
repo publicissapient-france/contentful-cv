@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'App',
+    name: 'App'
   }
 </script>
 
@@ -22,7 +22,7 @@
   }
 
   @page landscape {
-    size: $PTT-width-mm $PTT-height-mm ;
+    size: $PTT-width-mm $PTT-height-mm;
   }
 
   @media print {
@@ -39,7 +39,6 @@
 
   div.landscape-content {
     page: landscape;
-    border: 1px solid lightgray;
   }
 
   body {
