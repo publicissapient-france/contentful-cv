@@ -1,14 +1,19 @@
 <template>
     <div class="xp" v-if="graduateDate">
-      <img src="../assets/images/xp-picto.png"/>
+      <PictoBriefcase/>
       <strong class="xp__count">{{experience}} {{ $tc('year_xp', experience) }}</strong>
     </div>
 </template>
 
 <script>
+  import PictoBriefcase from '@/assets/svg/PictoBriefcase';
+
   export default {
     name: 'Xp',
     props: ['graduateDate'],
+    components: {
+      PictoBriefcase
+    },
     computed: {
       experience() {
         return new Date().getFullYear() - this.graduateDate;
@@ -21,9 +26,10 @@
   .xp {
     color: #FFFFFF;
     display: flex;
+    align-items: center;
 
-    & img{
-      height: 20px;
+    & svg{
+      height: 30px;
       margin-right: 10px;
     }
   }

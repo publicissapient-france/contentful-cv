@@ -1,16 +1,16 @@
 <template>
   <footer class="footer">
-    <LogoPublicisSapient/>
+    <LogoPS/>
   </footer>
 </template>
 
 <script>
 
-  import LogoPublicisSapient from '@/assets/svg/LogoPublicisSapient';
+  import LogoPS from '@/assets/svg/LogoPS';
   export default {
     name: 'FooterLogo',
     components:{
-      LogoPublicisSapient
+      LogoPS
     }
   }
 </script>

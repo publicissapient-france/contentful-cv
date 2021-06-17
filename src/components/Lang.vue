@@ -1,6 +1,6 @@
 <template>
   <p class="lang">
-    <img src="../assets/images/dialog-picto.png"/>
+    <PictoDialog/>
     <strong v-if="languages">
       {{languages.join(', ')}}
     </strong>
@@ -8,10 +8,14 @@
 </template>
 
 <script>
+  import PictoDialog from '@/assets/svg/PictoDialog'
+
   export default {
     name: 'Lang',
     props: ['languages'],
-
+    components:{
+      PictoDialog
+    }
   }
 </script>
 
@@ -20,9 +24,10 @@
     flex-grow: 1;
     color: #FFFFFF;
     display: flex;
+    align-items: center;
 
-    & img{
-      height: 20px;
+    & svg{
+      height: 30px;
       margin-right: 10px;
     }
   }

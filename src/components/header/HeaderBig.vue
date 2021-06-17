@@ -6,20 +6,20 @@
     </div>
     <div class="header__brand">
       <ImageCurve class="header__curve"/>
-      <ImageLogo class="header__logo"/>
+      <LogoPSForDarkBkg class="header__logo"/>
     </div>
   </div>
 </template>
 
 <script>
   import ImageCurve from '@/components/header/ImageCurve';
-  import ImageLogo from '@/components/header/ImageLogo';
+  import LogoPSForDarkBkg from '@/assets/svg/LogoPSForDarkBkg';
 
   export default {
     name: 'HeaderBig',
     props: ['firstName', 'name', 'role'],
     components: {
-      ImageLogo,
+      LogoPSForDarkBkg,
       ImageCurve
     }
   }

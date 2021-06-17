@@ -3,7 +3,7 @@
     <div class="cv__loaded" v-if="cv.id">
       <PageLandscape>
         <div class="cv__container">
-          <div class=cv__container__column-left">
+          <div class="cv__container__column-left">
             <div>
               <img v-if="picture" class="cv__image" :src="picture.src" :alt="picture.alt">
               <div class="cv__container__xpAndLang">
@@ -45,7 +45,6 @@
       <FooterLogo/>
     </div>
 
-
     <div class="cv__loading" v-else>
       <p>⏳ Récupération des données de Contentful...</p>
       <p>Un peu long la première fois, la lambda se chauffe 🔥...</p>
@@ -66,9 +65,7 @@
   import Xp from '@/components/Xp';
   import Lang from '@/components/Lang';
   import Expertise from '@/components/Expertise';
-
   import * as Contentful from 'contentful';
-
   import RichTextRenderer from 'contentful-rich-text-vue-renderer';
 
   export default {
@@ -145,21 +142,6 @@
           src: this.cv.picture.fields.file.url,
           alt: this.cv.picture.fields.title
         } : null
-      },
-      background() {
-        return this.cv.background ? this.cv.background.map(b => ({
-          ...b.fields
-        })) : null;
-      },
-      talks() {
-        return this.cv.talks ? this.cv.talks.map(t => ({
-          ...t.fields
-        })) : null;
-      },
-      posts() {
-        return this.cv.posts ? this.cv.posts.map(t => ({
-          ...t.fields
-        })) : null;
       },
       currentYear() {
         return new Date().getFullYear()
@@ -286,7 +268,7 @@
 
     &__image {
       margin-bottom: 5px;
-      height: 20px;
+      height: 30px;
       margin-bottom: 5px;
     }
   }

@@ -4,16 +4,16 @@
       <div class="header__name">{{firstName}} {{name}}</div>
       <div class="header__role">{{role}}</div>
     </div>
-    <ImageLogoW class="header__logo"/>
+    <LogoPSForColoredBkg class="header__logo"/>
   </div>
 </template>
 
 <script>
-  import ImageLogoW from '@/components/header/ImageLogoW';
+  import LogoPSForColoredBkg from '@/assets/svg/LogoPSForColoredBkg';
 
   export default {
     name: 'Header',
-    components: {ImageLogoW},
+    components: {LogoPSForColoredBkg},
     props: ['firstName', 'name', 'role']
   }
 </script>
@@ -46,10 +46,6 @@
     &__name {
       color: #FFFFFF;
       font-size: 2em;
-    }
-
-    &__role {
-
     }
 
     &__logo {

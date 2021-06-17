@@ -28,5 +28,9 @@
     &__title {
       color: $primary;
     }
+
+    & li{
+      margin-bottom: 5px;
+    }
   }
 </style>

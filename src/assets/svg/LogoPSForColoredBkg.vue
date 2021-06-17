@@ -52,12 +52,12 @@
 
 <script>
   export default {
-    name: 'LogoPublicisSapient'
+    name: 'LogoPSForColoredBkg'
   }
 </script>
 
 <style scoped>
   .a {
-    fill: #fe414d;
+    fill: #FFFFFF;
   }
 </style>

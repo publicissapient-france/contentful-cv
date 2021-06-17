@@ -52,12 +52,12 @@
 
 <script>
   export default {
-    name: 'ImageLogoW'
+    name: 'LogoPS'
   }
 </script>
 
 <style scoped>
   .a {
-    fill: #FFFFFF;
+    fill: #fe414d;
   }
 </style>
