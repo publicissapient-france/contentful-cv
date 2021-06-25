@@ -1,6 +1,6 @@
 <template>
   <div class="auth">
-    <h1>Bienvenue sur le générateur de CV Publicis Sapient France DBT</h1>
+    <h1>Bienvenue sur le générateur de CV Publicis Sapient France</h1>
     <div v-if="$auth.isAuthenticated">
       Connecté en tant que : {{$auth.user.email}}
     </div>
