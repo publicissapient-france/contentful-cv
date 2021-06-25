@@ -6,20 +6,27 @@
 
 <script>
   export default {
-    name: 'App',
+    name: 'App'
   }
 </script>
 
 <style lang="scss">
+
+  @import "@/style/reset";
+  @import "@/style/variables";
+  @import "@/style/theme";
+
   @page {
     size: A4;
     margin: 0;
   }
 
+  @page landscape {
+    size: $PTT-width-mm $PTT-height-mm;
+  }
+
   @media print {
     html, body {
-      width: 210mm;
-      height: 297mm;
       border: 0;
     }
     thead {
@@ -28,6 +35,10 @@
     tfoot {
       display: table-footer-group;
     }
+  }
+
+  div.landscape-content {
+    page: landscape;
   }
 
   body {
@@ -65,11 +76,12 @@
   }
 
   #app {
-    width: 794px; /* 96 ppi */
     margin: auto;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: FuturaNext, sans-serif;
+    font-weight: 400;
+    font-smooth: always;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2B2B2B;
+    color: #000000;
   }
 </style>

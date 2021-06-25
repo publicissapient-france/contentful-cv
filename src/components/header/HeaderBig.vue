@@ -6,20 +6,20 @@
     </div>
     <div class="header__brand">
       <ImageCurve class="header__curve"/>
-      <ImageLogo class="header__logo"/>
+      <LogoPSForDarkBkg class="header__logo"/>
     </div>
   </div>
 </template>
 
 <script>
   import ImageCurve from '@/components/header/ImageCurve';
-  import ImageLogo from '@/components/header/ImageLogo';
+  import LogoPSForDarkBkg from '@/assets/svg/LogoPSForDarkBkg';
 
   export default {
     name: 'HeaderBig',
     props: ['firstName', 'name', 'role'],
     components: {
-      ImageLogo,
+      LogoPSForDarkBkg,
       ImageCurve
     }
   }
@@ -30,7 +30,7 @@
   .header {
     z-index: 1;
     position: absolute;
-    width: 794px;
+    width: 100%;
     height: $height;
     display: flex;
     background-color: #fe414d;
@@ -41,13 +41,16 @@
     &__info {
       flex-grow: 1;
       margin-left: 50px;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     &__brand {
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      position:relative;
+      width : 200px;
       height: $height;
-      padding-right: 25px;
-      padding-left: 50px;
       background-color: #000000;
     }
 
@@ -56,15 +59,11 @@
       font-size: 2em;
     }
 
-    &__role {
-
-    }
-
     &__curve {
       height: 100%;
       width: 70px;
       position: absolute;
-      right: 210px;
+      left:  -55px;
     }
 
     &__logo {

@@ -1,0 +1,73 @@
+$primary :#FE414D;
+$secondary:#079FFF;
+
+$grey-S : #F2F2F2;
+$grey-M : #B4B4B4;
+$grey-L : #808080;
+
+
+@font-face {
+  font-family: 'FuturaNext';
+  font-weight: 400;
+  font-style:normal;
+  src: local(FuturaNext), url("~@/assets/fonts/FuturaNextW05-Book.woff") format("truetype");
+}
+@font-face {
+  font-family: 'FuturaNext';
+  font-weight: 500;
+  font-style:normal;
+  src: local(FuturaNext), url("~@/assets/fonts/FuturaNextW05-Medium.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: 'FuturaNext';
+  font-weight: 600;
+  font-style:normal;
+  src: local(FuturaNext), url("~@/assets/fonts/FuturaNextW05-DemiBold.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: 'FuturaNext';
+  font-weight: 700;
+  font-style:normal;
+  src: local(FuturaNext), url("~@/assets/fonts/FuturaNextW05-Bold.woff2") format("truetype");
+}
+
+.heading1{
+  font-family: FuturaNext, sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.heading2{
+  font-family: FuturaNext, sans-serif;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 28px;
+}
+
+.heading3{
+  font-family: FuturaNext, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.heading4{
+  font-family: FuturaNext, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  text-transform: uppercase;
+}
+
+strong, b{
+  font-family: FuturaNext, sans-serif;
+  font-weight: 600;
+}
+
+.error-message{
+  color : red;
+  font-weight: 700;
+}

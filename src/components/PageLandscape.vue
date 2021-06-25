@@ -1,20 +1,20 @@
 <template>
-  <div class="page">
+  <div class="page-landscape">
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'Page'
+    name: 'PageLandscape'
   }
 </script>
 
 <style scoped lang="scss">
   @import "@/style/variables";
 
-  .page {
-    height: $A4-height-px;
+  .page-landscape {
+    height: $PTT-height-px;
     overflow: hidden;
     page-break-after: always;
     position: relative;
