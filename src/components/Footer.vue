@@ -1,7 +1,7 @@
 <template>
   <table class="footer">
     <tr>
-      <td class="footer__address"><span>Publicis Sapient France DBT</span> - 94 avenue Gambetta - 75020 Paris</td>
+      <td class="footer__address"><span>Publicis Sapient France</span> - 94 avenue Gambetta - 75020 Paris</td>
       <td class="footer__contact">{{ $t('footer.contact') }}</td>
     </tr>
   </table>
