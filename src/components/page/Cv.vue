@@ -102,8 +102,9 @@
         });
         const entries = await client.getEntries({locale: this.locale});
         this.cv = entries.items[0].fields;
-        document.title = `${this.cv.name.toUpperCase()} ${this.cv.firstName} - Publicis Sapient France - ${this.currentYear()} - ${this.locale.toUpperCase()}`;
+        document.title = `${this.cv.name.toUpperCase()} ${this.cv.firstName} - Publicis Sapient France - ${this.currentYear} - ${this.locale.toUpperCase()}`;
       } catch (e) {
+        console.log(e);
         this.error = true;
         document.title = `❌ Curriculum vitae`;
       }
