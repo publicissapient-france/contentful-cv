@@ -23,7 +23,7 @@
         <button class="auth__button" @click="goMiniCvFr">Consulter le mini CV en 🇫🇷</button>
       </div>
       <div v-if="$auth.isAuthenticated">
-        <button class="auth__button" @click="goCvEn">Consulter le mini CV en 🇬🇧</button>
+        <button class="auth__button" @click="goMiniCvEn">Consulter le mini CV en 🇬🇧</button>
       </div>
       <div v-if="$auth.isAuthenticated">
         <button class="auth__button" @click="logout">Se déconnecter</button>
@@ -52,6 +52,9 @@
       },
       goMiniCvFr() {
         this.$router.push(`/mini-cv/${this.email.length > 1 ? this.email : this.$auth.user.email}?lang=fr`);
+      },
+      goMiniCvEn() {
+        this.$router.push(`/mini-cv/${this.email.length > 1 ? this.email : this.$auth.user.email}?lang=en`);
       },
       logout() {
         this.$auth.logout({

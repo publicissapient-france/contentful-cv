@@ -104,7 +104,7 @@
         this.cv = entries.items[0].fields;
         document.title = `${this.cv.name.toUpperCase()} ${this.cv.firstName} - Publicis Sapient France - ${this.currentYear} - ${this.locale.toUpperCase()}`;
       } catch (e) {
-        console.log(e);
+        console.error(e);
         this.error = true;
         document.title = `❌ Curriculum vitae`;
       }

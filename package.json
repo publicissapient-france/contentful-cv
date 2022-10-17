@@ -47,5 +47,8 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "engines": {
+    "node": ">=14.0.0 <15.0.0"
+  }
 }
