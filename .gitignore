@@ -24,3 +24,7 @@ yarn-error.log*
 
 # Build
 *.csv
+
+# Firebase
+functions/firebase-debug.log
+functions/ui-debug.log
