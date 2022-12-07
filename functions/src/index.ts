@@ -1,6 +1,7 @@
 import * as functions from "firebase-functions";
 import {initializeApp} from "firebase-admin/app";
 import {getUserId, isUserAuthorized} from "./auth";
+import {getCv} from "./cv";
 
 initializeApp();
 
@@ -13,5 +14,6 @@ export const cv = functions
         response.sendStatus(403);
         return;
       }
-      response.status(200).send(userId);
+      const cv = await getCv(userId);
+      response.status(200).send(cv);
     });

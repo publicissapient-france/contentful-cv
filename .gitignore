@@ -28,3 +28,4 @@ yarn-error.log*
 # Firebase
 functions/ui-debug.log
 firebase-debug.log
+.env
