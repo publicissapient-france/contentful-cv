@@ -15,5 +15,13 @@
       "npm --prefix \"$RESOURCE_DIR\" run lint",
       "npm --prefix \"$RESOURCE_DIR\" run build"
     ]
+  },
+  "hosting": {
+    "rewrites": [
+      {
+        "source": "/cv/**",
+        "functions": "fcv"
+      }
+    ]
   }
 }
