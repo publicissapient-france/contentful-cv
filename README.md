@@ -1,21 +1,16 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/aac22954-c1be-47f2-9cba-10bce3d64c74/deploy-status)](https://app.netlify.com/sites/pse-contentful-cv/deploys)
+# Contentful CV
 
-# Contentful to Cv
+> Generate a CV from Contentful.
 
-Generate a CV from Contentful.
+## Contribute
 
-# Contribute
-
-- Webapp developed with Vue.js
-- It uses Contentful as database
-- Design work by [Kristof](https://github.com/kristofkerninon) for initial version
-- Need two environment variables (`.env.local`)
+* Webapp developed with Vue3 + Vite + Typescript
+* It uses Contentful as database
+* Design work by Kristof for initial version
+* Need 1 environment variables (.env)
 
 ```
-VUE_APP_API_HOST=XX
-VUE_APP_AUTH0_AUDIENCE=XX
-VUE_APP_AUTH0_CLIENT_ID=XX
-VUE_APP_AUTH0_DOMAIN=XX
+VITE_APP_URL=XX
 ```
 
-> Ask [Benjamin](https://github.com/blacroix) or #contentful-cv on Slack for further information.
+Ask [Benjamin](https://github.com/blacroix) for further information.
