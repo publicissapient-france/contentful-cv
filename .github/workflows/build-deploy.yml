@@ -40,9 +40,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: |
           npm ci
-          npm run build
           touch .env
           echo VITE_APP_URL=${{ secrets.APP_URL }} >> .env
+          npm run build
       - uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
