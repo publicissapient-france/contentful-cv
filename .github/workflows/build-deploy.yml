@@ -1,9 +1,10 @@
-name: Build and deploy functions
-run-name: Build and deploy functions 🚀
+name: Build and deploy
+run-name: Build and deploy 🚀
 'on':
   push:
     branches:
-      - chore/functions-setup
+      - master
+      - ci/hosting
 jobs:
   Build-Deploy-Functions:
     runs-on: ubuntu-latest
@@ -25,5 +26,25 @@ jobs:
       - uses: w9jds/firebase-action@master
         with:
           args: deploy --only functions
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+  Build-Deploy-Hosting:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: |
+          npm ci
+          npm run build
+          touch .env
+          echo VITE_APP_URL=${{ secrets.APP_URL }} >> .env
+      - uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
