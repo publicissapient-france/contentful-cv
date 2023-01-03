@@ -1,5 +1,5 @@
 <template>
-  <div class="page-landscape">
+  <div class="page">
     <slot></slot>
   </div>
 </template>
@@ -7,8 +7,8 @@
 <style scoped lang="scss">
 @import "@/assets/variables.scss";
 
-.page-landscape {
-  height: $PTT-height-px;
+.page {
+  height: $A4-height-px;
   overflow: hidden;
   page-break-after: always;
   position: relative;

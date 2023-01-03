@@ -1,33 +1,33 @@
 <template>
   <footer class="footer">
-    <LogoPS/>
+    <LogoPS />
   </footer>
 </template>
 
-<script>
-
-  import LogoPS from '@/assets/svg/LogoPS';
-  export default {
-    name: 'FooterLogo',
-    components:{
-      LogoPS
-    }
-  }
+<script lang="ts">
+import { defineComponent } from "vue";
+import LogoPS from "@/assets/svg/LogoPS.vue";
+export default defineComponent({
+  name: "FooterLogo",
+  components: {
+    LogoPS,
+  },
+});
 </script>
 
 <style scoped lang="scss">
-  @import "@/style/variables";
+@import "@/assets/variables.scss";
 
-  .footer {
-    height: 40px;
-    width:$PTT-width-px ;
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    justify-content: flex-end;
+.footer {
+  height: 40px;
+  width: $PTT-width-px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
 
-    &>svg{
-      height: 30px;
-    }
+  & > svg {
+    height: 30px;
   }
+}
 </style>

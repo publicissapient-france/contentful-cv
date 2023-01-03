@@ -4,38 +4,31 @@
       <div class="header__name">{{ firstName }} {{ name }}</div>
       <div class="header__role">{{ role }}</div>
     </div>
-    <div class="header__brand">
-      <ImageCurve class="header__curve" />
-      <LogoPSForDarkBkg class="header__logo" />
-    </div>
+    <LogoPSForColoredBkg class="header__logo" />
   </div>
 </template>
 
 <script lang="ts">
-import ImageCurve from "@/components/header/ImageCurve.vue";
-import LogoPSForDarkBkg from "@/assets/svg/LogoPSForDarkBkg.vue";
+import LogoPSForColoredBkg from "@/assets/svg/LogoPSForColoredBkg.vue";
 
 export default {
+  components: { LogoPSForColoredBkg },
   props: ["firstName", "name", "role"],
-  components: {
-    LogoPSForDarkBkg,
-    ImageCurve,
-  },
 };
 </script>
 
 <style scoped lang="scss">
-$height: 160px;
+$height: 100px;
 .header {
-  z-index: 1;
-  position: absolute;
-  width: 100%;
   height: $height;
   display: flex;
   background-color: #fe414d;
   align-items: center;
   margin: 0;
   padding: 0;
+  position: fixed;
+  top: 0;
+  width: 794px;
 
   &__info {
     flex-grow: 1;
@@ -44,13 +37,9 @@ $height: 160px;
   }
 
   &__brand {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 200px;
     height: $height;
-    background-color: #000000;
+    padding-right: 25px;
+    padding-left: 50px;
   }
 
   &__name {
@@ -58,15 +47,9 @@ $height: 160px;
     font-size: 2em;
   }
 
-  &__curve {
-    height: 100%;
-    width: 70px;
-    position: absolute;
-    left: -55px;
-  }
-
   &__logo {
-    height: 150px;
+    width: 120px;
+    padding-right: 50px;
   }
 }
 </style>
