@@ -14,7 +14,16 @@
       {
         "source": "/cv/**",
         "function": "fcv"
+      },
+      {
+        "source": "/cv-updates",
+        "function": "fcvUpdates"
       }
     ]
+  },
+  "emulators": {
+    "functions": {
+      "port": 5002
+    }
   }
 }
