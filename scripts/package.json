@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/xebia-france/contentful-cv#readme",
   "dependencies": {
-    "contentful": "^7.14.5"
+    "contentful": "^9.2.15"
   },
   "devDependencies": {
     "json2csv": "^5.0.1"
