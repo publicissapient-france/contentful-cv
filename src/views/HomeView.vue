@@ -2,8 +2,10 @@
 import { defineComponent } from "vue";
 import { auth } from "@/firebase/init";
 import type { User } from "@firebase/auth";
+import CvUpdates from "@/components/CvUpdates.vue";
 
 export default defineComponent({
+  components: { CvUpdates },
   data() {
     return {
       email: "",
@@ -54,14 +56,16 @@ export default defineComponent({
           Consult 🇺🇸 mini CV
         </button>
       </div>
+      <CvUpdates />
     </div>
   </main>
 </template>
 
 <style scoped lang="scss">
 .auth {
-  width: 500px;
   margin: auto;
+  min-width: 500px;
+  max-width: 800px;
   text-align: center;
   padding: 50px;
 
